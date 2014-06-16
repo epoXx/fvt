@@ -3,4 +3,5 @@ fvt.sublime-project
 fvt.sublime-workspace
 db/*.sqlit3
 .DS_Store
+*.log
 

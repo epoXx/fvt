@@ -11,8 +11,11 @@ var users = require('./routes/users');
 var app = express();
 
 // view engine setup
+app.engine('html', require('hogan-express'));
+app.enable('view cache');
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hjs');
+app.set('view engine', 'html');
+app.set('layout', 'layout');
 
 app.use(favicon());
 app.use(logger('dev'));

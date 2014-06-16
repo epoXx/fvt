@@ -1,9 +1,24 @@
 {
-  "name": "application-name",
+  "name": "fvt",
   "version": "0.0.1",
   "private": true,
+  "author": {
+    "name": "Andreas Heilig",
+    "email": "devxope@gmail.com",
+    "url": "http://github.com/epoxx/"
+  },
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "NODE_ENV=development nodemon ./bin/www"
+  },
+  "devDependencies": {
+    "bootstrap": "git://github.com/twbs/bootstrap",
+    "grunt": "0.4.5",
+    "grunt-bump": "0.0.14",
+    "grunt-contrib-less": "0.11.2",
+    "jquery": "^2.1.0",
+    "nodemon": "1.0.18",
+    "requirejs": "2.1.11"
   },
   "dependencies": {
     "express": "~4.0.0",
@@ -12,8 +27,12 @@
     "cookie-parser": "~1.0.1",
     "body-parser": "~1.0.0",
     "debug": "~0.7.4",
-    "hjs": "~0.0.6",
+    "hogan-express": "~0.5.2",
     "less-middleware": "0.1.15",
-    "connect-sqlite3" : "*"
+    "sqlite3": ">=2.1.x"
+  },
+  "engines": {
+    "node": ">=0.10.26",
+    "npm": ">=1.2.0"
   }
 }
