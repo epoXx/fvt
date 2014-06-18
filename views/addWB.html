@@ -1,8 +1,13 @@
 <div class="container">
-    <form class="form-signin" role="form" method="post" action="login">
+    <form class="form-signin" role="form" method="post" action="addWBS">
      	<h2 class="form-signin-heading">Anmelden</h2>
-        <input type="text" name="username" class="form-control" placeholder="Email address" required autofocus />
-        <input type="password" class="form-control" placeholder="Passwort" name="password" required />
+        <input type="text" name="wbnum" class="form-control" placeholder="WBS-Nr." required autofocus />
+        <input type="text" name="vorname" class="form-control" placeholder="Vorname"  required />
+        <input type="text" name="nachname" class="form-control" placeholder="Nachname"  required />
+        <input type="text" name="waldflaeche" class="form-control" placeholder="Waldfläche"  required />
+        <input type="text" name="strasse" class="form-control" placeholder="Strasse"  required />
+        <input type="text" name="plz" class="form-control" placeholder="PLZ"  required />
+        <input type="text" name="stadt" class="form-control" placeholder="Stadt"  required />
         <input class="btn btn-lg btn-primary btn-block" type="submit" value="OK" />
     </form>
 </div> <!-- /container -->

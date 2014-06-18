@@ -31,6 +31,8 @@ app.get('/', FVT.login);
 app.post('/login', FVT.processLogin);
 app.get('/logout', FVT.logout);
 app.get('/fvt', FVT.checkAuth, FVT.fvt);
+app.get('/addWBS', FVT.checkAuth, FVT.addWBS);
+app.post('/addWBS', FVT.processAddWb);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {

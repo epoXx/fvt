@@ -49,9 +49,27 @@ var FVT = {
 				if(data) {
 					var list = JSON.stringify(data);
 					res.render('fvt', {'data': data, 'partials': { navbar: 'navbar'}});
-					console.log(list);
 				}
 			});
+	},
+
+	addWBS: function(req, res, next) {
+		res.render('addWB');
+	},
+
+	processAddWb: function(req, res, next) {
+		var data = [req.body.wbnum, req.body.vorname, req.body.nachname, 
+					req.body.waldflaeche, req.body.strasse, req.body.plz, req.body.stadt];
+		var db = FVT.getDb();
+		console.log(data);
+		db.run("INSERT INTO wbs VALUES (?,?,?,?,?,?,?)", data, function(err){
+			if(err) {
+				console.log(err)
+			} else {
+				db.close();
+				res.send('Success!')
+			}
+		});
 	} 
 };
 
