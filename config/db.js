@@ -1,6 +1,12 @@
-var getDB = function(){
-	var sqlite3 = require('sqlite3').verbose();
-	var db = new sqlite3.Database('db/fvtDB');
-};
+var fvtDB = {
+	_db: null,
 
-module.exports = getDB; 
+	getDB: function(){
+		if(!fvtDB._db) {
+			var sqlite3 = require('sqlite3').verbose();
+		}
+		return fvtDB._db; 
+	}
+}
+
+module.exports = fvtDB;
