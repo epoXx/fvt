@@ -1,5 +1,11 @@
 var FVT = {
 
+	getDb: function() {
+		var sqlite3 = require('sqlite3').verbose();
+		FVT.db = new sqlite3.Database('db/fvtDB');
+		return FVT.db;
+	},
+
 	checkAuth: function(req, res, next) {
 		if (!req.session.user) {
 			res.redirect('/');
@@ -17,13 +23,12 @@ var FVT = {
 
 	processLogin: function(req, res, next) {
 		var data = [req.body.username, req.body.password];
-		var sqlite3 = require('sqlite3').verbose();
-		var db = new sqlite3.Database('db/fvtDB');
-		
+		var db = FVT.getDb();
 		db.get('SELECT * FROM users WHERE username = ? AND password = ?', data, 
 		function(err, row){
 			if (row) {
 				req.session.user = row.username; 
+				console.log(req.session.user);
 				res.redirect('/fvt');
 			} else {
 				res.redirect('/');
@@ -38,7 +43,7 @@ var FVT = {
 	},
 
 	fvt: function(req, res, next) {
-		
+		var data = 
 		res.send('Succsessfully logged in! Hello ' + req.session.user + '! Press <a href="/logout>Logout</a>"');
 	} 
 };
