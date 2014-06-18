@@ -1,1 +1,31 @@
-bllaaa
+{{>navbar}}
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>WBS Nr.</th>
+				<th>Vorname</th>
+				<th>Nachname</th>
+				<th>Waldfläche</th>
+				<th>Strasse</th>
+				<th>PLZ</th>
+				<th>Ort</th>
+				<th>Steuer-Nr.</th>
+            </tr>
+        </thead>
+    	<tbody>
+    		{{#data}}
+            <tr>
+            	<td>{{WBSNummer}}</td>
+            	<td>{{Vorname}}</td>
+            	<td>{{Nachname}}</td>
+            	<td>{{Waldflaeche}}</td>
+            	<td>{{Strasse}}</td>
+            	<td>{{PLZ}}</td>
+            	<td>{{Stadt}}</td>
+            	<td>SteuerNummer</td>
+            </tr>
+            {{/data}}
+		</tbody>
+	</table>
+</div>

@@ -43,8 +43,15 @@ var FVT = {
 	},
 
 	fvt: function(req, res, next) {
-		var data = 
-		res.send('Succsessfully logged in! Hello ' + req.session.user + '! Press <a href="/logout>Logout</a>"');
+		var db = FVT.getDb();
+		db.all('SELECT * FROM wbs',
+			function(err, data){
+				if(data) {
+					var list = JSON.stringify(data);
+					res.render('fvt', {'data': data, 'partials': { navbar: 'navbar'}});
+					console.log(list);
+				}
+			});
 	} 
 };
 
